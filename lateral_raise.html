@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--  
+    Document Title
+    =============================================
+    -->
+  <title>Boram | lateral raise</title>
+  <!--  
+    Favicons
+    =============================================
+    -->
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/daram.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/daram.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/daram.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/daram.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/daram.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/daram.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/daram.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/daram.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/daram.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicons/daram.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/daram.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/daram.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/daram.png">
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/images/favicons/daram.png">
+  <meta name="theme-color" content="#ffffff">
+  <!--  
+    Stylesheets
+    =============================================
+    
+    -->
+  <script src="./js/code.jquery.com_jquery-3.7.1.min.js"></script>
+  <script src="./js/scripts.js" defer type="text/javascript"></script>
+  <!-- Default stylesheets-->
+  <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Template specific stylesheets-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+  <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+  <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
+  <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+  <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+  <!-- Main stylesheet and color file-->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+  <main>
+    <div class="page-loader">
+      <div class="loader">Loading...</div>
+    </div>
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span
+              class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span
+              class="icon-bar"></span></button><a class="navbar-brand" href="mainpage.php">Boram | lateral raise</a>
+        </div>
+        <div class="collapse navbar-collapse" id="custom-collapse">
+
+        </div>
+      </div>
+    </nav>
+    <div class="main">
+      <div>
+        <div class="text"><span id="counter">0</span>개</div>
+      </div>
+
+      <button class="btn" type="button" onclick="init()">Start</button>
+      <button type="button" onclick="save()" class="stbtn">저장</button>
+      <style>
+        #canvas {
+          position: absolute;
+          left: 3%;
+          top: 55px;
+        }
+
+        .text {
+          position: absolute;
+          font-size: 30px;
+          display: none;
+          margin-left: 50%;
+          margin-top: 20%;
+        }
+
+        .text.active {
+          display: block;
+        }
+
+        .btn {
+          position: relative;
+          margin-top: 270px;
+          left: 28%;
+          width: 800px;
+          height: 200px;
+          font-size: 10rem;
+          border-radius: 30px;
+          color: #adb5bd;
+          background-color: #343a40;
+        }
+
+        .btn:hover {
+          background-color: #adb5bd;
+        }
+
+        .btn.chbtn {
+          display: none;
+        }
+
+        .stbtn {
+          display: none;
+        }
+
+        .stbtn.active {
+          position: absolute;
+          display: block;
+          width: 120px;
+          height: 40px;
+          color: white;
+          border: none;
+          background-color: #343a40;
+          left: 48%;
+          top: 40em;
+        }
+
+        .message_box {
+          display: none;
+        }
+
+        .message_box.cnt {
+          position: absolute;
+          top: 10;
+          width: 100%;
+          height: calc(100%);
+          opacity: 0.5;
+          z-index: 1;
+          display: block;
+        }
+
+        .message {
+          display: none;
+        }
+
+        .message.cnt {
+          background-color: rgb(255, 0, 0);
+          opacity: 0.5;
+          position: absolute;
+          display: block;
+          z-index: 10;
+          font-size: 50px;
+          color: #333;
+          left: 25%;
+          top: 20%;
+          width: 1000px;
+          color: #FFF;
+          text-align: center;
+          font-weight: bold;
+        }
+      </style>
+      <div><canvas id="canvas"></canvas></div>
+      <div id="label-container"></div>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+      <script type="text/javascript">
+        // More API functions here:
+        // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
+
+        // the link to your model provided by Teachable Machine export panel
+        const URL = "./raise/";
+        let model, webcam, ctx, labelContainer, maxPredictions;
+
+        var status = "stand";
+        var count = 0;
+        var start_time;
+        var today;
+
+        async function init() {
+
+          today = new Date();
+
+          start_time = today.getFullYear() +
+            '-' + ((today.getMonth() + 1) < 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)) +
+            '-' + ((today.getDate()) < 9 ? "0" + (today.getDate()) : (today.getDate())) +
+            ' ' + ((today.getHours()) < 9 ? "0" + (today.getHours()) : (today.getHours())) +
+            ':' + ((today.getMinutes()) < 9 ? "0" + (today.getMinutes()) : (today.getMinutes())) +
+            ':' + ((today.getSeconds()) < 9 ? "0" + (today.getSeconds()) : (today.getSeconds()));
+
+          console.log(today);
+          console.log(start_time);
+
+          const modelURL = URL + "model.json";
+          const metadataURL = URL + "metadata.json";
+
+          // load the model and metadata
+          // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+          // Note: the pose library adds a tmPose object to your window (window.tmPose)
+          model = await tmPose.load(modelURL, metadataURL);
+          maxPredictions = model.getTotalClasses();
+
+          // Convenience function to setup a webcam
+          const size = 750;
+          const flip = true; // whether to flip the webcam
+          webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+          await webcam.setup(); // request access to the webcam
+          await webcam.play();
+          window.requestAnimationFrame(loop);
+
+          // append/get elements to the DOM
+          const canvas = document.getElementById("canvas");
+          canvas.width = size; canvas.height = size;
+          ctx = canvas.getContext("2d");
+          labelContainer = document.getElementById("label-container");
+          for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+          }
+        }
+
+        async function loop(timestamp) {
+          webcam.update(); // update the webcam frame
+          await predict();
+          window.requestAnimationFrame(loop);
+        }
+
+        var isRaising = false; // 레이즈 중인지 여부
+        var raiseStartTime; // 레이즈 시작 시간
+        var minRaiseDuration = 1000; // 레이즈가 1초 이상 지속되어야 함 (밀리초 단위)
+
+        let wrongPoseStartTime1; // 틀린 자세 시작 시간 ※
+        let wrongPoseStartTime2; // 틀린 자세 시작 시간 ※
+        const wrongPoseDuration = 1000; // 틀린 자세가 2초 이상 지속되어야 함 (밀리초 단위) ※
+
+
+        async function predict() {
+          // Prediction #1: run input through posenet
+          // estimatePose can take in an image, video or canvas html element
+          const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+          // Prediction 2: run input through teachable machine classification model
+          const prediction = await model.predict(posenetOutput);
+
+
+          if (prediction[0].probability.toFixed(2) === "1.00") { // 레이즈 감지
+            if (!isRaising) { // 레이즈 중이 아니면
+              isRaising = true; // 레이즈 상태로 설정
+              raiseStartTime = new Date().getTime(); // 레이즈 시작 시간 저장
+            }
+          } else { // 레이즈가 아닌 경우
+            if (isRaising) { // 레이즈 중이었으면
+              const currentTime = new Date().getTime();
+              const elapsedTime = currentTime - raiseStartTime; // 레이즈 지속 시간 계산
+              if (elapsedTime >= minRaiseDuration) { // 1초 이상 레이즈했으면
+                count++; // 카운트 증가
+                $('#counter').html(count); // 카운트 업데이트
+              }
+              isRaising = false; // 레이즈 상태 해제
+            }
+          }
+
+          if (prediction[3].probability.toFixed(2) === "1.00") {
+            if (!wrongPoseStartTime1) {
+              wrongPoseStartTime1 = new Date().getTime(); // 틀린 자세 시작 시간 저장
+            }
+
+            const currentTime = new Date().getTime();
+            const elapsedTime = currentTime - wrongPoseStartTime1; // 틀린 자세 지속 시간 계산
+
+            if (elapsedTime >= wrongPoseDuration) { // 1초 이상 틀린 자세를 유지하고 있으면
+              const messageBox = document.createElement('div');
+              messageBox.classList.add('message_box', 'cnt');
+              const message = document.createElement('p');
+              message.classList.add('message', 'cnt');
+              message.innerText = '팔을 좀 더 내리세요';
+              messageBox.appendChild(message);
+              document.body.appendChild(messageBox);
+
+              // 메시지가 3초 후에 사라지도록 함
+              setTimeout(function () {
+                messageBox.classList.remove('cnt');
+                messageBox.style.display = 'none';
+              }, 3000);
+
+              wrongPoseStartTime1 = null; // 틀린 자세 시작 시간 초기화
+            }
+          } else {
+            wrongPoseStartTime1 = null; // 틀린 자세 시작 시간 초기화
+          }
+
+          if (prediction[4].probability.toFixed(2) === "1.00") {
+            if (!wrongPoseStartTime2) {
+              wrongPoseStartTime2 = new Date().getTime(); // 틀린 자세 시작 시간 저장
+            }
+
+            const currentTime = new Date().getTime();
+            const elapsedTime = currentTime - wrongPoseStartTime2; // 틀린 자세 지속 시간 계산
+
+            if (elapsedTime >= wrongPoseDuration) { // 1초 이상 틀린 자세를 유지하고 있으면
+              const messageBox = document.createElement('div');
+              messageBox.classList.add('message_box', 'cnt');
+              const message = document.createElement('p');
+              message.classList.add('message', 'cnt');
+              message.innerText = '양쪽 팔의 수평을 맞추세요';
+              messageBox.appendChild(message);
+              document.body.appendChild(messageBox);
+
+              // 메시지가 3초 후에 사라지도록 함
+              setTimeout(function () {
+                messageBox.classList.remove('cnt');
+                messageBox.style.display = 'none';
+              }, 3000);
+
+              wrongPoseStartTime2 = null; // 틀린 자세 시작 시간 초기화
+            }
+          } else {
+            wrongPoseStartTime2 = null; // 틀린 자세 시작 시간 초기화
+          }
+
+
+          for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+              prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+          }
+
+          // finally draw the poses
+          drawPose(pose);
+        }
+
+        function drawPose(pose) {
+          if (webcam.canvas) {
+            ctx.drawImage(webcam.canvas, 0, 0);
+            // draw the keypoints and skeleton
+            if (pose) {
+              const minPartConfidence = 0.5;
+              tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
+              tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
+            }
+          }
+        }
+
+        async function save() {
+
+          console.log(count);
+          console.log("start_time : " + start_time);
+          console.log("today : " + today);
+
+          // predict 함수에서 업데이트한 count 값을 사용
+          const data = {
+            count: count,
+            start_time: start_time,
+            today: today
+          };
+
+          console.log(JSON.stringify(data));
+
+          fetch(`lateral_raiseDB.php?count=${count}&start_time=${start_time}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.text())
+            .then((result) => {
+              // 서버에서 반환된 결과 처리
+              console.log(result);
+            })
+            .catch((error) => {
+              console.error("에러 발생:", error);
+            });
+
+          // 데이터를 저장하는 로직을 추가
+          // 저장이 완료되었다는 알림 메시지 표시
+          showNotification("저장되었습니다.");
+        }
+
+
+        function showNotification(message) {
+          // 알림 메시지 표시
+          alert(message);
+
+          // 페이지를 다른 곳으로 리디렉션
+          window.location.href = "mainpage.php"; // 다른페이지URL을 실제 페이지 URL로 교체
+        }
+
+      </script>
+    </div>
+
+    <div class="bbi">
+      <div class="bi">
+        <video autoplay loop>
+          <source src="./assets/images/videos/raiseEx.mp4" type="video/mp4" class="dsd">
+        </video>
+      </div>
+    </div>
+    <style>
+      .bbi {
+        /*비디오를 감싸고 있는 div*/
+        position: absolute;
+        width: 750px;
+        height: 750px;
+        z-index: 1;
+        top: 100px;
+        right: 15%;
+        right: 0;
+      }
+
+      .bi {
+        /*비디오 감싸고 있는 div2*/
+        position: relative;
+      }
+
+      .bi>video {
+        /*비디오 크기*/
+        width: 640px;
+        height: 750px;
+      }
+
+      .bbi {
+        display: none;
+      }
+
+      .bbi.active {
+        display: block;
+      }
+    </style>
+
+    <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+  </main>
+  <!--  
+    JavaScripts
+    =============================================
+    -->
+  <script src="assets/lib/jquery/dist/jquery.js"></script>
+  <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/lib/wow/dist/wow.js"></script>
+  <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+  <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
+  <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
+  <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="assets/lib/smoothscroll.js"></script>
+  <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+  <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

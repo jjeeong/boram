@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--  
+    Favicons
+    =============================================
+    -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/daram.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/daram.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/daram.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/daram.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/daram.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/daram.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/daram.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/daram.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/daram.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicons/daram.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/daram.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/daram.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/daram.png">
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicons/daram.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        li{
+            list-style-type: none;
+        }
+    </style>
+
+    <title>Boram | Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+
+    <script>
+        function check_input() {
+            var username = document.getElementById("id").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var usernameError = document.getElementById("usernameError");
+            var emailError = document.getElementById("emailError");
+            var passwordError = document.getElementById("passwordError");
+
+            var isValid = true;
+
+            if (username.length < 4) {
+                usernameError.innerText = "ID는 최소 4자 이상이어야 합니다.";
+                isValid = false;
+                document.member.id.focus();
+                return;
+            } else {
+                usernameError.innerText = "";
+            }
+
+            if (!email.includes("@")) {
+                emailError.innerText = "올바른 이메일 주소를 입력하세요.";
+                isValid = false;
+                document.member.email.focus();
+                return;
+            } else {
+                emailError.innerText = "";
+            }
+            if (password.length < 6) {
+                passwordError.innerText = "비밀번호는 6자 이상이어야 합니다.";
+                isValid = false;
+                document.member.password.focus();
+                return;
+            } else {
+                passwordError.innerText = "";
+            }
+
+            if(!document.member.id.value) {
+                alert("아이디를 입력해 주세요.");
+                document.member.id.focus();
+                return;
+            }
+            if(!document.member.password.value) {
+                alert("비밀번호를 입력해 주세요.");
+                document.member.password.focus();
+                return;
+            }
+            if(!document.member.pass_confirm.value) {
+                alert("비밀번호 체크를 입력해 주세요.");
+                document.member.pass_confirm.focus();
+                return;
+            }
+            if(!document.member.email.value) {
+                alert("이메일 주소를 입력해 주세요.");
+                document.member.email.focus();
+                return;
+            }
+            if(!document.member.name.value) {
+                alert("이름을 입력해 주세요.");
+                document.member.name.focus();
+                return;
+            }
+            if(!document.member.birth.value) {
+                alert("생년월일을 입력해 주세요.");
+                document.member.birth.focus();
+                return;
+            }
+            if(!document.member.tel.value) {
+                alert("전화번호를 입력해 주세요.");
+                document.member.tel.focus();
+                return;
+            }
+            if(document.member.password.value != document.member.pass_confirm.value) {
+                alert("비밀번호가 일치하지 않습니다. \n 다시 입력해 주세요.");
+                document.member.password.focus();
+                document.member.password.select();
+                return;
+            }
+            document.member.submit();
+
+
+            return isValid;
+        }
+
+        function check_id() {
+            window.open("check_id.php?id=" + document.member.id.value,
+            "IDcheck",
+            "left=700, top=300, width=380, height=160, scrollbars=no, resizable=yes");
+        }
+    </script>
+
+</head>
+<style>
+    .container{ /*좀만 더 가운데로 땡기려고 만든것*/
+        position: relative;
+        top: 3rem;
+    }
+</style>
+<body class="bg-gradient-primary align_sub">
+    
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
+                            </div>
+
+                            <form class="user" name="member" action="insert.php" method="post">
+
+                                <div class="form-group row">
+                                    <div class="col-sm-9 mb-3 mb-sm-0">
+                                        <input type="email" class="form-control form-control-user" id="id"
+                                            placeholder="ID / 아이디" name="id" required>
+                                        <span id="usernameError" style="color: red;"></span>
+                                    </div>
+                                    <div class="col-sm-3 mb-3 mb-sm-0">
+                                        <button type="button" onclick="check_id()" class="btn btn-primary btn-user btn-block">중복체크</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="password" placeholder="Password / 비밀번호" name="password">
+                                        <span id="passwordError" style="color: red;"></span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="passwordRepeat" placeholder="Repeat Password / 비밀번호 확인" name="pass_confirm">
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="email"
+                                        placeholder="Email Address / 이메일 주소" name="email">
+                                    <span id="emailError" style="color: red;"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="name"
+                                            placeholder="Name / 이름" name="name">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="birth"
+                                            placeholder="YYYY-MM-DD / 생년월일" name="birth">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="tel"
+                                        placeholder="Tel / 전화번호" name="tel">
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="gender"><input type="radio" name="gender" value="2"> 여 </label> 
+                                    <label class="gender"><input type="radio" name="gender" value="1"> 남 </label>
+                                </div>
+                                <style>
+                                    .gender{
+                                        float: right;
+                                        width: 50px;
+                                    }
+                                </style>
+
+                                <div>
+                                    <button type="button" class="btn btn-primary btn-user btn-block" onclick="check_input()">확인</button>                    
+                                </div>             
+                                
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">비밀번호 찾기</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login_form.html">계정이 이미 있나요? 로그인!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
